@@ -41,6 +41,7 @@ export default class OrderNode extends Component {
 		const gap = Math.min(w, h) / 5
 		this.sProp.startUpdating(() => {
 			mainAnimator.start(() => {
+				console.log(this.sProp.scale)
 				return this.sProp.update((sc) => {
 					this.setState({x : origX + gap * sc})
 				})	
@@ -49,10 +50,9 @@ export default class OrderNode extends Component {
 	}
 
 	render() {
-		console.log(this)
-		console.log(this.props.x)
+		console.log(this.state.x)
 		return <div ref="d1" onClick={this.handleClick.bind(this)}>
-					<div style={{width:this.state.size, height : this.state.size, borderRadius:"50%", background:'#303F9F', position:'absolute', transform : `translateX(${this.state.x})translateY(${h/2})`}}>
+					<div style={{width:this.state.size, height : this.state.size, borderRadius:"50%", background:'#303F9F', position:'absolute', left : this.state.x, top : h/2}}>
 					</div>
 			   </div>
 	}
