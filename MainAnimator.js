@@ -14,7 +14,7 @@ class MainAnimator {
 						}
 					}
 				})
-			})
+			}, 50)
 		}
 		this.cbs.push(cb)
 	}
