@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {mainAnimator} from './MainAnimator'
 const w = window.innerWidth, h = window.innerHeight 
-
+const gap = Math.min(w, h) / 5
 class StateProp {
 	constructor() {
 		this.scale = 0
@@ -51,8 +51,11 @@ export default class OrderNode extends Component {
 
 	render() {
 		console.log(this.state.x)
+		const x = this.props.i * gap
 		return <div ref="d1" onClick={this.handleClick.bind(this)}>
 					<div style={{width:this.state.size, height : this.state.size, borderRadius:"50%", background:'#303F9F', position:'absolute', left : this.state.x, top : h/2}}>
+					</div>
+					<div style={{width:Math.min(w, h)/5 + this.state.size/2, height:0, border:'2px solid #303F9F', position:'absolute', left : x, top : h/2 + this.state.size/2}}>
 					</div>
 			   </div>
 	}
